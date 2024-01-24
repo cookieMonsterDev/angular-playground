@@ -1,17 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { ListItemComponent } from '../list-item/list-item.component';
+import { Item, ListService } from '../../servicies/list.service';
 
 @Component({
   selector: 'app-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ListItemComponent],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css',
 })
 export class ListComponent {
-  data = [
-    { id: '1', text: 'Item 1' },
-    { id: '2', text: 'Item 2' },
-    { id: '3', text: 'Item 3' },
-  ];
+  data: Item[];
+
+  constructor(private listServise: ListService) {
+    this.data = listServise.getData();
+  }
 }

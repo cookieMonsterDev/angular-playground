@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ListService } from '../../servicies/list.service';
 
 @Component({
   selector: 'app-list-item',
@@ -11,7 +12,9 @@ export class ListItemComponent {
   @Input() id!: string;
   @Input() text!: string;
 
+  constructor(private listServise: ListService) {}
+
   removeItem() {
-    console.log(this.id);
+    this.listServise.remove(this.id);
   }
 }

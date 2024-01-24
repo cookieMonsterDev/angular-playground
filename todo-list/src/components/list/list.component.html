@@ -1,5 +1,5 @@
 <ul class="list-group">
-  <li *ngFor="let item of data">
+  <li class="list-group-item" *ngFor="let item of data">
     <app-list-item [text]="item.text" [id]="item.id"></app-list-item>
   </li>
 </ul>
